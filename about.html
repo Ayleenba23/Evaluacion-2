@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre mí - Ayleen Bahamondez</title>
+  <link href="style.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <h1>AYLEEN BAHAMONDEZ</h1>
+      <p>Diseñadora Integral</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav">
+      <a href="index.html">Portafolio</a>
+      <a href="about.html" class="active">Sobre mí</a>
+    </nav>
+
+    <!-- About Section -->
+    <section class="about">
+      <div class="about-text">
+        <h2>Sobre mí</h2>
+        <p>
+          Soy estudiante de <strong>Diseño Integral</strong>, apasionada por el diseño estratégico, 
+          la innovación en procesos productivos y la integración de la tecnología en proyectos creativos.  
+          Mi trabajo explora desde el diseño de producto hasta la experimentación con materiales y 
+          fabricación digital, siempre buscando conectar la funcionalidad con la emoción.
+        </p>
+        <p>
+          Dentro de mi formación, he desarrollado proyectos en diversas áreas: mobiliario, 
+          iluminación, objetos utilitarios, packaging, mockups de producto y modelado 3D.  
+          Valoro especialmente los procesos colaborativos, el aprendizaje constante y el impacto que 
+          el diseño puede tener en la vida cotidiana de las personas.
+        </p>
+        <p>
+          Este portafolio recopila los proyectos más representativos de mi trayectoria académica 
+          en el año 2022–2025, reflejando mis intereses, habilidades y visión como futura diseñadora.
+        </p>
+      </div>
+
+      <div class="about-photo">
+        <img src="images/foto-ayleen.jpg" alt="Foto de Ayleen Bahamondez">
+      </div>
+    </section>
+
+    <!-- Chart Section -->
+    <section class="about-chart">
+      <h2>Evolución de mis notas</h2>
+      <canvas id="aboutChart"></canvas>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>© 2025 Ayleen Bahamondez. Todos los derechos reservados.</p>
+      <div class="social-links">
+        <a href="#">Behance</a>
+        <a href="#">LinkedIn</a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const notas = [
+      4.8, 5.0, 6.9, 6.6, 7.0, 5.3, 5.0, 6.6, 7.0,
+    ];
+    const proyectos = [
+      "ChocoCraft", "Recuerdo", "Carruaje", "Guardianes", "Mocktail", 
+      "Cromalux", "Velas", "Mesa", "Porta", "Svelty"
+    ];
+
+    const ctxAbout = document.getElementById("aboutChart");
+    new Chart(ctxAbout, {
+      type: 'line',
+      data: {
+        labels: proyectos,
+        datasets: [{
+          label: "Nota",
+          data: notas,
+          borderColor: "#6a4fcf",
+          backgroundColor: "rgba(106, 79, 207, 0.2)",
+          fill: true,
+          tension: 0.3,
+          pointBackgroundColor: "#6a4fcf"
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: true }
+        },
+        scales: {
+          y: { beginAtZero: true, max: 7 }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
